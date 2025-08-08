@@ -33,12 +33,28 @@ if (villageCode === null || villageCode === undefined) {
 }
 //alert(villageCode);
 
+const vectorSource = new ol.source.Vector({
+    format: new ol.format.GeoJSON(),
+    url: 'data/' + villageCode + '.json?r=' + Math.random()
+});
+
+// Once the source is loaded and ready
+vectorSource.once('change', function () {
+    if (vectorSource.getState() === 'ready') {
+      
+        const extent = vectorSource.getExtent();
+        const center = ol.extent.getCenter(extent);
+
+        console.log("Center of the layer extent:", center);
+
+        // You can then use this center to set the view's center
+        map.getView().setCenter(center);
+    }
+});
+
 const vectorLayer = new ol.layer.VectorImage({
     //background: 'red',
-    source: new ol.source.Vector({
-        url: 'data/' + villageCode + '.json?r=' + Math.random(),
-        format: new ol.format.GeoJSON(),
-    }),
+    source: vectorSource,
     style: function (feature) {
         const id = feature.getId() || feature.ol_uid;       
         const label = feature.get('l') + '\n' + feature.get('n');
@@ -65,7 +81,7 @@ const overlay = new ol.Overlay({
 
 var googleSatLayer = new ol.layer.Tile({
     source: new ol.source.XYZ({
-        url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+        url: 'https://mt{0-3}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', //m - road, s - sattilite, y - hybrid
         crossOrigin: 'anonymous',
         attributions: '© Google'
     })
@@ -104,7 +120,7 @@ var map = new ol.Map({
     overlays: [overlay],
     view: new ol.View({
         center: ol.proj.fromLonLat([81.05190760944306, 16.299537635972154]),
-        zoom: 18
+        zoom: 15
     })
 });
 
