@@ -124,7 +124,27 @@ map.on('singleclick', function (evt) {
             return feature;
         });
     if (feature) {
-      
+
+        // Reset style of previously selected feature
+        if (currentFeature) {
+            currentFeature.setStyle(null); // Reverts to layer's default style
+        }
+
+        
+        feature.setStyle(new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 0, 0, 0.2)',
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#FF0000',
+                width: 3,
+            }),  
+            zIndex: 1000
+        }));
+
+
+        //labelStyle.getText().setText(feature.get('l') + '\n' + feature.get('n'));
+
         if (feature !== currentFeature) {
             if (feature.get('a') != 0) {
                 content.innerHTML = 'LP No: '+ feature.get('l') +'<br/>Name: '+ feature.get('n') + '<br/>Relation Name: ' + feature.get('r') + '<br/>Acres: ' + feature.get('a');
@@ -137,6 +157,14 @@ map.on('singleclick', function (evt) {
 
     currentFeature = feature;   
     overlay.setPosition(coordinate);
+});
+
+map.on('addfeature', function () {
+    console.log('vectorLayer on');
+    view.fit(vectorLayer.getExtent(), {
+        padding: [50, 50, 50, 50], // Optional padding around the extent
+        duration: 1000 // Optional animation duration in milliseconds
+    });
 });
 
 closer.onclick = function () {
