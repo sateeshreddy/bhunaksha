@@ -6,7 +6,10 @@
     <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
     <title>Bhu Naksha Maps</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,12 +20,147 @@
 
             </div>
         </div>
+        <select id="mySelect2" class="js-example-basic-single js-states form-control">
+            <optgroup label="Gudlavalleru">
+                <option></option>
+                <option value="643002">ANGALURU</option>
+                <option value="639008">CHANDRALA</option>
+                <option value="639003">CHERUVUPALLE</option>
+                <option value="643006">CHINAGONNURU</option>
+                <option value="643013">CHITRAM</option>
+                <option value="643015">DOKIPARRU</option>
+                <option value="639024">GADEPUDI</option>
+                <option value="639010">GUDLAVALLERU</option>
+                <option value="643017">KOWTARAM</option>
+                <option value="643008">KURADA</option>
+                <option value="643014">MAMIDICOLLA</option>
+                <option value="643021">NAGAVARAM</option>
+                <option value="643012">PENJENDRA</option>
+                <option value="643016">PESARAMILLI</option>
+                <option value="643005">PURITIPADU</option>
+                <option value="643007">SERI DAGGUMILLI</option>
+                <option value="643001">SERI KALVAPUDI</option>
+                <option value="643022">ULAVALAPUDI</option>
+                <option value="643023">VADLAMANNADU</option>
+                <option value="643019">VEMAVARAM</option>
+                <option value="643018">VEMAVARAPPALEM</option>
+                <option value="643011">VEMUGUNTA</option>
+                <option value="643020">VENTURUMILLI</option>
+                <option value="643004">VINNAKOTA</option>
+            </optgroup>
+            <optgroup label="Pamarru">            
+                <option value="639005">ADDADA</option>
+                <option value="639008">AINAMPUDI</option>
+                <option value="639003">BALLIPARRU</option>
+                <option value="639018">JUJJAVARAM</option>
+                <option value="639001">KANUMURU</option>
+                <option value="639020">KAPAVARAM</option>
+                <option value="639006">KOMARAVOLU</option>
+                <option value="639010">KONDIPARRU</option>
+                <option value="639002">KURUMADDALI</option>
+                <option value="639021">MALLAVARAM</option>
+                <option value="639022">MIR IMAMPALEM</option>
+                <option value="639025">NEMMALURU</option>
+                <option value="639026">NEMMIKURU</option>
+                <option value="639016">NIBHANUPUDI</option>
+                <option value="639011">PAMARRU</option>
+                <option value="639019">PASUMARRU</option>
+                <option value="639004">PEDAMADDALI</option>
+                <option value="639014">POLAVARAM</option>
+                <option value="639023">PRAKARLA</option>
+                <option value="639013">RAPARLA</option>
+                <option value="639009">RIMMANAPUDI</option>
+                <option value="639015">UNDRAPUDI</option>
+                <option value="639012">URUTURU</option>
+                <option value="639024">YELAKURRU</option>
+                <option value="639017">ZAMIDAGGUMILLI</option>
+                <option value="639007">ZAMIGOLVEPALLE</option>
+            </optgroup>            
+        </select>
+        <br/>
+        <br/>
         <ul>
             <li><a href="./map.html?code=643015">Dokiparru</a></li>
             <li><a href="./map.html?code=639011">Pamarru</a></li>
         </ul>
+        <!--<h2>Gudlavalleru</h2>
         <ul>
+            <li><a href="./map.html?code=643002">ANGALURU - అంగలూరు</a></li>
+            <li><a href="./map.html?code=639008">CHANDRALA - చంద్రాల</a></li>
+            <li><a href="./map.html?code=639003">CHERUVUPALLE - చెరువుపల్లె</a></li>
+            <li><a href="./map.html?code=643006">CHINAGONNURU - చినగొన్నూరు</a></li>
+            <li><a href="./map.html?code=643013">CHITRAM - చిత్రం</a></li>
+            <li><a href="./map.html?code=643015">DOKIPARRU - దోకిపర్రు</a></li>
+            <li><a href="./map.html?code=643024">GADEPUDI - గాడేపూడి</a></li>
+            <li><a href="./map.html?code=643010">GUDLAVALLERU - గుడ్లవల్లేరు</a></li>
+            <li><a href="./map.html?code=643017">KOWTARAM - కౌతారం</a></li>
+            <li><a href="./map.html?code=643008">KURADA - కూరాడ</a></li>
+            <li><a href="./map.html?code=643014">MAMIDICOLLA - మామిడికోల్ల</a></li>
+            <li><a href="./map.html?code=643021">NAGAVARAM - నాగవరం</a></li>
+            <li><a href="./map.html?code=643012">PENJENDRA - పెంజేంద్ర</a></li>
+            <li><a href="./map.html?code=643016">PESARAMILLI - పెసరమిల్లి</a></li>
+            <li><a href="./map.html?code=643005">PURITIPADU - పురిటిపాడు</a></li>
+            <li><a href="./map.html?code=643007">SERI DAGGUMILLI - శేరి దగ్గుమిల్లి</a></li>
+            <li><a href="./map.html?code=643001">SERI KALVAPUDI - శేరి కల్వపూడి</a></li>
+            <li><a href="./map.html?code=643022">ULAVALAPUDI - ఉలవలపూడి</a></li>
+            <li><a href="./map.html?code=643023">VADLAMANNADU - వడ్లమన్నాడు</a></li>
+            <li><a href="./map.html?code=643019">VEMAVARAM - వేమవరం</a></li>
+            <li><a href="./map.html?code=643018">VEMAVARAPPALEM - వేమవరప్పాలెం</a></li>
+            <li><a href="./map.html?code=643011">VEMUGUNTA - వేముగుంట</a></li>
+            <li><a href="./map.html?code=643020">VENTURUMILLI - వెంటూరుమిల్లి</a></li>
+            <li><a href="./map.html?code=643004">VINNAKOTA - విన్నకోట</a></li>
         </ul>
+
+        <h2>Pamarru</h2>
+        <ul>
+            <li><a href="./map.html?code=639005">ADDADA - అద్దాడ</a></li>
+            <li><a href="./map.html?code=639008">AINAMPUDI - ఐనంపూడి</a></li>
+            <li><a href="./map.html?code=639003">BALLIPARRU - బల్లిపర్రు</a></li>
+            <li><a href="./map.html?code=639018">JUJJAVARAM - జుజ్జవరం</a></li>
+            <li><a href="./map.html?code=639001">KANUMURU - కనుమూరు</a></li>
+            <li><a href="./map.html?code=639020">KAPAVARAM - కాపవరం</a></li>
+            <li><a href="./map.html?code=639006">KOMARAVOLU - కొమరవోలు</a></li>
+            <li><a href="./map.html?code=639010">KONDIPARRU - కొండిపర్రు</a></li>
+            <li><a href="./map.html?code=639002">KURUMADDALI - కురుమద్దాలి</a></li>
+            <li><a href="./map.html?code=639021">MALLAVARAM - మల్లవరం</a></li>
+            <li><a href="./map.html?code=639022">MIR IMAMPALEM - మిర్ ఇమాంమ్ పాలెం</a></li>
+            <li><a href="./map.html?code=639025">NEMMALURU - నెమ్మలూరు</a></li>
+            <li><a href="./map.html?code=639026">NEMMIKURU - నెమ్మికూరు</a></li>
+            <li><a href="./map.html?code=639016">NIBHANUPUDI - నిభానుపూడి</a></li>
+            <li><a href="./map.html?code=639011">PAMARRU - పామర్రు</a></li>
+            <li><a href="./map.html?code=639019">PASUMARRU - పసుమర్రు</a></li>
+            <li><a href="./map.html?code=639004">PEDAMADDALI - పెదమద్దాలి</a></li>
+            <li><a href="./map.html?code=639014">POLAVARAM - పోలవరం</a></li>
+            <li><a href="./map.html?code=639023">PRAKARLA - ప్రాకర్ల</a></li>
+            <li><a href="./map.html?code=639013">RAPARLA - రాపర్ల</a></li>
+            <li><a href="./map.html?code=639009">RIMMANAPUDI - రిమ్మనపూడి</a></li>
+            <li><a href="./map.html?code=639015">UNDRAPUDI - ఉంద్రపూడి</a></li>
+            <li><a href="./map.html?code=639012">URUTURU - ఊరుటూరు</a></li>
+            <li><a href="./map.html?code=639024">YELAKURRU - యెలకుర్రు</a></li>
+            <li><a href="./map.html?code=639017">ZAMIDAGGUMILLI - జమిదగ్గుమిల్లి</a></li>
+            <li><a href="./map.html?code=639007">ZAMIGOLVEPALLE - జమిగొల్వేపల్లె</a></li>
+        </ul>-->
     </div>
+    <script>
+        // Add any necessary JavaScript code here
+        $(document).ready(function () {
+            // Initialize Select2
+            $('#mySelect2').select2({
+                placeholder: "Select a village",
+                allowClear: true 
+            });
+
+            // 2. Listen to the select event
+            $('#mySelect2').on('select2:select', function (e) {
+                var selectedUrl = "./map.html?code=" + e.params.data.id;
+
+                // 3. Open the page
+                if (selectedUrl) {
+                    window.location.href = selectedUrl; // Opens in the current tab
+                    // window.open(selectedUrl, '_blank'); // Uncomment to open in a new tab
+                }
+            });
+        });
+    </script>
 </body>
 </html>
